@@ -114,7 +114,7 @@ interface DynamicSchemePalettesDelegate {
  * with the theme style. Used by DynamicColor to resolve into a color.
  */
 export class DynamicScheme {
-  static readonly DEFAULT_SPEC_VERSION = '2021';
+  static readonly DEFAULT_SPEC_VERSION = '2025';
   static readonly DEFAULT_PLATFORM = 'phone';
 
   /**
