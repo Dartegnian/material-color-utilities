@@ -1,5 +1,5 @@
 {
-  "name": "@material/material-color-utilities",
+  "name": "@dartegnian/material-color-utilities",
   "version": "0.3.1",
   "publishConfig": {
     "access": "public"
