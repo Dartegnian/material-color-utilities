@@ -192,7 +192,7 @@ export class DynamicScheme {
     this.contrastLevel = args.contrastLevel;
     this.isDark = args.isDark;
     this.platform = args.platform ?? 'phone';
-    this.specVersion = args.specVersion ?? '2021';
+    this.specVersion = args.specVersion ?? '2025';
     this.sourceColorHct = args.sourceColorHct;
     this.primaryPalette = args.primaryPalette ??
         getSpec(this.specVersion)
