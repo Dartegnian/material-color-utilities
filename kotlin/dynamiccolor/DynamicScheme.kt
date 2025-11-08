@@ -1,5 +1,5 @@
 /*
- * Copyright 2022 Google LLC
+ * Copyright 2025 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,7 +43,7 @@ open class DynamicScheme(
   /** The platform on which this scheme is intended to be used. */
   val platform: Platform = DEFAULT_PLATFORM,
   /** The spec version of the scheme. */
-  val specVersion: SpecVersion = DEFAULT_SPEC_VERSION,
+  specVersion: SpecVersion = DEFAULT_SPEC_VERSION,
   val primaryPalette: TonalPalette,
   val secondaryPalette: TonalPalette,
   val tertiaryPalette: TonalPalette,
@@ -51,6 +51,13 @@ open class DynamicScheme(
   val neutralVariantPalette: TonalPalette,
   val errorPalette: TonalPalette,
 ) {
+
+  /** The spec version of the scheme. */
+  val specVersion: SpecVersion
+
+  init {
+    this.specVersion = maybeFallbackSpecVersion(specVersion, variant)
+  }
 
   /** The source color of the scheme in ARGB format. */
   val sourceColorArgb: Int = sourceColorHct.toInt()
@@ -75,191 +82,169 @@ open class DynamicScheme(
     )}, contrastLevel=${DecimalFormat("0.0").format(contrastLevel)}, seed=$sourceColorHct, specVersion=$specVersion"
   }
 
+  private val dynamicColors = MaterialDynamicColors()
+
   val primaryPaletteKeyColor: Int
-    get() = getArgb(MaterialDynamicColors().primaryPaletteKeyColor())
+    get() = getArgb(dynamicColors.primaryPaletteKeyColor)
 
   val secondaryPaletteKeyColor: Int
-    get() = getArgb(MaterialDynamicColors().secondaryPaletteKeyColor())
+    get() = getArgb(dynamicColors.secondaryPaletteKeyColor)
 
   val tertiaryPaletteKeyColor: Int
-    get() = getArgb(MaterialDynamicColors().tertiaryPaletteKeyColor())
+    get() = getArgb(dynamicColors.tertiaryPaletteKeyColor)
 
   val neutralPaletteKeyColor: Int
-    get() = getArgb(MaterialDynamicColors().neutralPaletteKeyColor())
+    get() = getArgb(dynamicColors.neutralPaletteKeyColor)
 
   val neutralVariantPaletteKeyColor: Int
-    get() = getArgb(MaterialDynamicColors().neutralVariantPaletteKeyColor())
+    get() = getArgb(dynamicColors.neutralVariantPaletteKeyColor)
 
   val background: Int
-    get() = getArgb(MaterialDynamicColors().background())
+    get() = getArgb(dynamicColors.background)
 
   val onBackground: Int
-    get() = getArgb(MaterialDynamicColors().onBackground())
+    get() = getArgb(dynamicColors.onBackground)
 
   val surface: Int
-    get() = getArgb(MaterialDynamicColors().surface())
+    get() = getArgb(dynamicColors.surface)
 
   val surfaceDim: Int
-    get() = getArgb(MaterialDynamicColors().surfaceDim())
+    get() = getArgb(dynamicColors.surfaceDim)
 
   val surfaceBright: Int
-    get() = getArgb(MaterialDynamicColors().surfaceBright())
+    get() = getArgb(dynamicColors.surfaceBright)
 
   val surfaceContainerLowest: Int
-    get() = getArgb(MaterialDynamicColors().surfaceContainerLowest())
+    get() = getArgb(dynamicColors.surfaceContainerLowest)
 
   val surfaceContainerLow: Int
-    get() = getArgb(MaterialDynamicColors().surfaceContainerLow())
+    get() = getArgb(dynamicColors.surfaceContainerLow)
 
   val surfaceContainer: Int
-    get() = getArgb(MaterialDynamicColors().surfaceContainer())
+    get() = getArgb(dynamicColors.surfaceContainer)
 
   val surfaceContainerHigh: Int
-    get() = getArgb(MaterialDynamicColors().surfaceContainerHigh())
+    get() = getArgb(dynamicColors.surfaceContainerHigh)
 
   val surfaceContainerHighest: Int
-    get() = getArgb(MaterialDynamicColors().surfaceContainerHighest())
+    get() = getArgb(dynamicColors.surfaceContainerHighest)
 
   val onSurface: Int
-    get() = getArgb(MaterialDynamicColors().onSurface())
+    get() = getArgb(dynamicColors.onSurface)
 
   val surfaceVariant: Int
-    get() = getArgb(MaterialDynamicColors().surfaceVariant())
+    get() = getArgb(dynamicColors.surfaceVariant)
 
   val onSurfaceVariant: Int
-    get() = getArgb(MaterialDynamicColors().onSurfaceVariant())
+    get() = getArgb(dynamicColors.onSurfaceVariant)
 
   val inverseSurface: Int
-    get() = getArgb(MaterialDynamicColors().inverseSurface())
+    get() = getArgb(dynamicColors.inverseSurface)
 
   val inverseOnSurface: Int
-    get() = getArgb(MaterialDynamicColors().inverseOnSurface())
+    get() = getArgb(dynamicColors.inverseOnSurface)
 
   val outline: Int
-    get() = getArgb(MaterialDynamicColors().outline())
+    get() = getArgb(dynamicColors.outline)
 
   val outlineVariant: Int
-    get() = getArgb(MaterialDynamicColors().outlineVariant())
+    get() = getArgb(dynamicColors.outlineVariant)
 
   val shadow: Int
-    get() = getArgb(MaterialDynamicColors().shadow())
+    get() = getArgb(dynamicColors.shadow)
 
   val scrim: Int
-    get() = getArgb(MaterialDynamicColors().scrim())
+    get() = getArgb(dynamicColors.scrim)
 
   val surfaceTint: Int
-    get() = getArgb(MaterialDynamicColors().surfaceTint())
+    get() = getArgb(dynamicColors.surfaceTint)
 
   val primary: Int
-    get() = getArgb(MaterialDynamicColors().primary())
+    get() = getArgb(dynamicColors.primary)
 
   val onPrimary: Int
-    get() = getArgb(MaterialDynamicColors().onPrimary())
+    get() = getArgb(dynamicColors.onPrimary)
 
   val primaryContainer: Int
-    get() = getArgb(MaterialDynamicColors().primaryContainer())
+    get() = getArgb(dynamicColors.primaryContainer)
 
   val onPrimaryContainer: Int
-    get() = getArgb(MaterialDynamicColors().onPrimaryContainer())
+    get() = getArgb(dynamicColors.onPrimaryContainer)
 
   val inversePrimary: Int
-    get() = getArgb(MaterialDynamicColors().inversePrimary())
+    get() = getArgb(dynamicColors.inversePrimary)
 
   val secondary: Int
-    get() = getArgb(MaterialDynamicColors().secondary())
+    get() = getArgb(dynamicColors.secondary)
 
   val onSecondary: Int
-    get() = getArgb(MaterialDynamicColors().onSecondary())
+    get() = getArgb(dynamicColors.onSecondary)
 
   val secondaryContainer: Int
-    get() = getArgb(MaterialDynamicColors().secondaryContainer())
+    get() = getArgb(dynamicColors.secondaryContainer)
 
   val onSecondaryContainer: Int
-    get() = getArgb(MaterialDynamicColors().onSecondaryContainer())
+    get() = getArgb(dynamicColors.onSecondaryContainer)
 
   val tertiary: Int
-    get() = getArgb(MaterialDynamicColors().tertiary())
+    get() = getArgb(dynamicColors.tertiary)
 
   val onTertiary: Int
-    get() = getArgb(MaterialDynamicColors().onTertiary())
+    get() = getArgb(dynamicColors.onTertiary)
 
   val tertiaryContainer: Int
-    get() = getArgb(MaterialDynamicColors().tertiaryContainer())
+    get() = getArgb(dynamicColors.tertiaryContainer)
 
   val onTertiaryContainer: Int
-    get() = getArgb(MaterialDynamicColors().onTertiaryContainer())
+    get() = getArgb(dynamicColors.onTertiaryContainer)
 
   val error: Int
-    get() = getArgb(MaterialDynamicColors().error())
+    get() = getArgb(dynamicColors.error)
 
   val onError: Int
-    get() = getArgb(MaterialDynamicColors().onError())
+    get() = getArgb(dynamicColors.onError)
 
   val errorContainer: Int
-    get() = getArgb(MaterialDynamicColors().errorContainer())
+    get() = getArgb(dynamicColors.errorContainer)
 
   val onErrorContainer: Int
-    get() = getArgb(MaterialDynamicColors().onErrorContainer())
+    get() = getArgb(dynamicColors.onErrorContainer)
 
   val primaryFixed: Int
-    get() = getArgb(MaterialDynamicColors().primaryFixed())
+    get() = getArgb(dynamicColors.primaryFixed)
 
   val primaryFixedDim: Int
-    get() = getArgb(MaterialDynamicColors().primaryFixedDim())
+    get() = getArgb(dynamicColors.primaryFixedDim)
 
   val onPrimaryFixed: Int
-    get() = getArgb(MaterialDynamicColors().onPrimaryFixed())
+    get() = getArgb(dynamicColors.onPrimaryFixed)
 
   val onPrimaryFixedVariant: Int
-    get() = getArgb(MaterialDynamicColors().onPrimaryFixedVariant())
+    get() = getArgb(dynamicColors.onPrimaryFixedVariant)
 
   val secondaryFixed: Int
-    get() = getArgb(MaterialDynamicColors().secondaryFixed())
+    get() = getArgb(dynamicColors.secondaryFixed)
 
   val secondaryFixedDim: Int
-    get() = getArgb(MaterialDynamicColors().secondaryFixedDim())
+    get() = getArgb(dynamicColors.secondaryFixedDim)
 
   val onSecondaryFixed: Int
-    get() = getArgb(MaterialDynamicColors().onSecondaryFixed())
+    get() = getArgb(dynamicColors.onSecondaryFixed)
 
   val onSecondaryFixedVariant: Int
-    get() = getArgb(MaterialDynamicColors().onSecondaryFixedVariant())
+    get() = getArgb(dynamicColors.onSecondaryFixedVariant)
 
   val tertiaryFixed: Int
-    get() = getArgb(MaterialDynamicColors().tertiaryFixed())
+    get() = getArgb(dynamicColors.tertiaryFixed)
 
   val tertiaryFixedDim: Int
-    get() = getArgb(MaterialDynamicColors().tertiaryFixedDim())
+    get() = getArgb(dynamicColors.tertiaryFixedDim)
 
   val onTertiaryFixed: Int
-    get() = getArgb(MaterialDynamicColors().onTertiaryFixed())
+    get() = getArgb(dynamicColors.onTertiaryFixed)
 
   val onTertiaryFixedVariant: Int
-    get() = getArgb(MaterialDynamicColors().onTertiaryFixedVariant())
-
-  val controlActivated: Int
-    get() = getArgb(MaterialDynamicColors().controlActivated())
-
-  val controlNormal: Int
-    get() = getArgb(MaterialDynamicColors().controlNormal())
-
-  val controlHighlight: Int
-    get() = getArgb(MaterialDynamicColors().controlHighlight())
-
-  val textPrimaryInverse: Int
-    get() = getArgb(MaterialDynamicColors().textPrimaryInverse())
-
-  val textSecondaryAndTertiaryInverse: Int
-    get() = getArgb(MaterialDynamicColors().textSecondaryAndTertiaryInverse())
-
-  val textPrimaryInverseDisableOnly: Int
-    get() = getArgb(MaterialDynamicColors().textPrimaryInverseDisableOnly())
-
-  val textSecondaryAndTertiaryInverseDisabled: Int
-    get() = getArgb(MaterialDynamicColors().textSecondaryAndTertiaryInverseDisabled())
-
-  val textHintInverse: Int
-    get() = getArgb(MaterialDynamicColors().textHintInverse())
+    get() = getArgb(dynamicColors.onTertiaryFixedVariant)
 
   companion object {
     val DEFAULT_SPEC_VERSION = SpecVersion.SPEC_2021
@@ -365,6 +350,24 @@ open class DynamicScheme(
         rotation = 0.0
       }
       return MathUtils.sanitizeDegreesDouble(sourceColorHct.hue + rotation)
+    }
+
+    /**
+     * Returns the spec version to use for the given variant. If the variant is not supported by the
+     * given spec version, the fallback spec version is returned.
+     */
+    private fun maybeFallbackSpecVersion(specVersion: SpecVersion, variant: Variant): SpecVersion {
+      return when (variant) {
+        Variant.EXPRESSIVE,
+        Variant.VIBRANT,
+        Variant.TONAL_SPOT,
+        Variant.NEUTRAL -> specVersion
+        Variant.MONOCHROME,
+        Variant.FIDELITY,
+        Variant.CONTENT,
+        Variant.RAINBOW,
+        Variant.FRUIT_SALAD -> SpecVersion.SPEC_2021
+      }
     }
   }
 }

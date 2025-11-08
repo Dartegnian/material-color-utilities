@@ -1,5 +1,5 @@
 /*
- * Copyright 2023 Google LLC
+ * Copyright 2025 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,337 +19,211 @@ package dynamiccolor
 class MaterialDynamicColors {
   private val colorSpec: ColorSpec = ColorSpec2025()
 
-  fun highestSurface(s: DynamicScheme): DynamicColor {
-    return colorSpec.highestSurface(s)
-  }
+  fun highestSurface(s: DynamicScheme): DynamicColor = colorSpec.highestSurface(s)
 
   // ////////////////////////////////////////////////////////////////
   // Main Palettes //
   // ////////////////////////////////////////////////////////////////
-  fun primaryPaletteKeyColor(): DynamicColor {
-    return colorSpec.primaryPaletteKeyColor()
-  }
+  val primaryPaletteKeyColor: DynamicColor
+    get() = colorSpec.primaryPaletteKeyColor
 
-  fun secondaryPaletteKeyColor(): DynamicColor {
-    return colorSpec.secondaryPaletteKeyColor()
-  }
+  val secondaryPaletteKeyColor: DynamicColor
+    get() = colorSpec.secondaryPaletteKeyColor
 
-  fun tertiaryPaletteKeyColor(): DynamicColor {
-    return colorSpec.tertiaryPaletteKeyColor()
-  }
+  val tertiaryPaletteKeyColor: DynamicColor
+    get() = colorSpec.tertiaryPaletteKeyColor
 
-  fun neutralPaletteKeyColor(): DynamicColor {
-    return colorSpec.neutralPaletteKeyColor()
-  }
+  val neutralPaletteKeyColor: DynamicColor
+    get() = colorSpec.neutralPaletteKeyColor
 
-  fun neutralVariantPaletteKeyColor(): DynamicColor {
-    return colorSpec.neutralVariantPaletteKeyColor()
-  }
+  val neutralVariantPaletteKeyColor: DynamicColor
+    get() = colorSpec.neutralVariantPaletteKeyColor
 
-  fun errorPaletteKeyColor(): DynamicColor {
-    return colorSpec.errorPaletteKeyColor()
-  }
+  val errorPaletteKeyColor: DynamicColor
+    get() = colorSpec.errorPaletteKeyColor
 
   // ////////////////////////////////////////////////////////////////
   // Surfaces [S] //
   // ////////////////////////////////////////////////////////////////
-  fun background(): DynamicColor {
-    return colorSpec.background()
-  }
+  val background: DynamicColor
+    get() = colorSpec.background
 
-  fun onBackground(): DynamicColor {
-    return colorSpec.onBackground()
-  }
+  val onBackground: DynamicColor
+    get() = colorSpec.onBackground
 
-  fun surface(): DynamicColor {
-    return colorSpec.surface()
-  }
+  val surface: DynamicColor
+    get() = colorSpec.surface
 
-  fun surfaceDim(): DynamicColor {
-    return colorSpec.surfaceDim()
-  }
+  val surfaceDim: DynamicColor
+    get() = colorSpec.surfaceDim
 
-  fun surfaceBright(): DynamicColor {
-    return colorSpec.surfaceBright()
-  }
+  val surfaceBright: DynamicColor
+    get() = colorSpec.surfaceBright
 
-  fun surfaceContainerLowest(): DynamicColor {
-    return colorSpec.surfaceContainerLowest()
-  }
+  val surfaceContainerLowest: DynamicColor
+    get() = colorSpec.surfaceContainerLowest
 
-  fun surfaceContainerLow(): DynamicColor {
-    return colorSpec.surfaceContainerLow()
-  }
+  val surfaceContainerLow: DynamicColor
+    get() = colorSpec.surfaceContainerLow
 
-  fun surfaceContainer(): DynamicColor {
-    return colorSpec.surfaceContainer()
-  }
+  val surfaceContainer: DynamicColor
+    get() = colorSpec.surfaceContainer
 
-  fun surfaceContainerHigh(): DynamicColor {
-    return colorSpec.surfaceContainerHigh()
-  }
+  val surfaceContainerHigh: DynamicColor
+    get() = colorSpec.surfaceContainerHigh
 
-  fun surfaceContainerHighest(): DynamicColor {
-    return colorSpec.surfaceContainerHighest()
-  }
+  val surfaceContainerHighest: DynamicColor
+    get() = colorSpec.surfaceContainerHighest
 
-  fun onSurface(): DynamicColor {
-    return colorSpec.onSurface()
-  }
+  val onSurface: DynamicColor
+    get() = colorSpec.onSurface
 
-  fun surfaceVariant(): DynamicColor {
-    return colorSpec.surfaceVariant()
-  }
+  val surfaceVariant: DynamicColor
+    get() = colorSpec.surfaceVariant
 
-  fun onSurfaceVariant(): DynamicColor {
-    return colorSpec.onSurfaceVariant()
-  }
+  val onSurfaceVariant: DynamicColor
+    get() = colorSpec.onSurfaceVariant
 
-  fun inverseSurface(): DynamicColor {
-    return colorSpec.inverseSurface()
-  }
+  val inverseSurface: DynamicColor
+    get() = colorSpec.inverseSurface
 
-  fun inverseOnSurface(): DynamicColor {
-    return colorSpec.inverseOnSurface()
-  }
+  val inverseOnSurface: DynamicColor
+    get() = colorSpec.inverseOnSurface
 
-  fun outline(): DynamicColor {
-    return colorSpec.outline()
-  }
+  val outline: DynamicColor
+    get() = colorSpec.outline
 
-  fun outlineVariant(): DynamicColor {
-    return colorSpec.outlineVariant()
-  }
+  val outlineVariant: DynamicColor
+    get() = colorSpec.outlineVariant
 
-  fun shadow(): DynamicColor {
-    return colorSpec.shadow()
-  }
+  val shadow: DynamicColor
+    get() = colorSpec.shadow
 
-  fun scrim(): DynamicColor {
-    return colorSpec.scrim()
-  }
+  val scrim: DynamicColor
+    get() = colorSpec.scrim
 
-  fun surfaceTint(): DynamicColor {
-    return colorSpec.surfaceTint()
-  }
+  val surfaceTint: DynamicColor
+    get() = colorSpec.surfaceTint
 
   // ////////////////////////////////////////////////////////////////
   // Primaries [P] //
   // ////////////////////////////////////////////////////////////////
-  fun primary(): DynamicColor {
-    return colorSpec.primary()
-  }
+  val primary: DynamicColor
+    get() = colorSpec.primary
 
-  fun primaryDim(): DynamicColor? {
-    return colorSpec.primaryDim()
-  }
+  val primaryDim: DynamicColor?
+    get() = colorSpec.primaryDim
 
-  fun onPrimary(): DynamicColor {
-    return colorSpec.onPrimary()
-  }
+  val onPrimary: DynamicColor
+    get() = colorSpec.onPrimary
 
-  fun primaryContainer(): DynamicColor {
-    return colorSpec.primaryContainer()
-  }
+  val primaryContainer: DynamicColor
+    get() = colorSpec.primaryContainer
 
-  fun onPrimaryContainer(): DynamicColor {
-    return colorSpec.onPrimaryContainer()
-  }
+  val onPrimaryContainer: DynamicColor
+    get() = colorSpec.onPrimaryContainer
 
-  fun inversePrimary(): DynamicColor {
-    return colorSpec.inversePrimary()
-  }
+  val inversePrimary: DynamicColor
+    get() = colorSpec.inversePrimary
 
   // ///////////////////////////////////////////////////////////////
   // Primary Fixed Colors [PF] //
   // ///////////////////////////////////////////////////////////////
-  fun primaryFixed(): DynamicColor {
-    return colorSpec.primaryFixed()
-  }
+  val primaryFixed: DynamicColor
+    get() = colorSpec.primaryFixed
 
-  fun primaryFixedDim(): DynamicColor {
-    return colorSpec.primaryFixedDim()
-  }
+  val primaryFixedDim: DynamicColor
+    get() = colorSpec.primaryFixedDim
 
-  fun onPrimaryFixed(): DynamicColor {
-    return colorSpec.onPrimaryFixed()
-  }
+  val onPrimaryFixed: DynamicColor
+    get() = colorSpec.onPrimaryFixed
 
-  fun onPrimaryFixedVariant(): DynamicColor {
-    return colorSpec.onPrimaryFixedVariant()
-  }
+  val onPrimaryFixedVariant: DynamicColor
+    get() = colorSpec.onPrimaryFixedVariant
 
   // ////////////////////////////////////////////////////////////////
   // Secondaries [Q] //
   // ////////////////////////////////////////////////////////////////
-  fun secondary(): DynamicColor {
-    return colorSpec.secondary()
-  }
+  val secondary: DynamicColor
+    get() = colorSpec.secondary
 
-  fun secondaryDim(): DynamicColor? {
-    return colorSpec.secondaryDim()
-  }
+  val secondaryDim: DynamicColor?
+    get() = colorSpec.secondaryDim
 
-  fun onSecondary(): DynamicColor {
-    return colorSpec.onSecondary()
-  }
+  val onSecondary: DynamicColor
+    get() = colorSpec.onSecondary
 
-  fun secondaryContainer(): DynamicColor {
-    return colorSpec.secondaryContainer()
-  }
+  val secondaryContainer: DynamicColor
+    get() = colorSpec.secondaryContainer
 
-  fun onSecondaryContainer(): DynamicColor {
-    return colorSpec.onSecondaryContainer()
-  }
+  val onSecondaryContainer: DynamicColor
+    get() = colorSpec.onSecondaryContainer
 
   // ///////////////////////////////////////////////////////////////
   // Secondary Fixed Colors [QF] //
   // ///////////////////////////////////////////////////////////////
-  fun secondaryFixed(): DynamicColor {
-    return colorSpec.secondaryFixed()
-  }
+  val secondaryFixed: DynamicColor
+    get() = colorSpec.secondaryFixed
 
-  fun secondaryFixedDim(): DynamicColor {
-    return colorSpec.secondaryFixedDim()
-  }
+  val secondaryFixedDim: DynamicColor
+    get() = colorSpec.secondaryFixedDim
 
-  fun onSecondaryFixed(): DynamicColor {
-    return colorSpec.onSecondaryFixed()
-  }
+  val onSecondaryFixed: DynamicColor
+    get() = colorSpec.onSecondaryFixed
 
-  fun onSecondaryFixedVariant(): DynamicColor {
-    return colorSpec.onSecondaryFixedVariant()
-  }
+  val onSecondaryFixedVariant: DynamicColor
+    get() = colorSpec.onSecondaryFixedVariant
 
   // ////////////////////////////////////////////////////////////////
   // Tertiaries [T] //
   // ////////////////////////////////////////////////////////////////
-  fun tertiary(): DynamicColor {
-    return colorSpec.tertiary()
-  }
+  val tertiary: DynamicColor
+    get() = colorSpec.tertiary
 
-  fun tertiaryDim(): DynamicColor? {
-    return colorSpec.tertiaryDim()
-  }
+  val tertiaryDim: DynamicColor?
+    get() = colorSpec.tertiaryDim
 
-  fun onTertiary(): DynamicColor {
-    return colorSpec.onTertiary()
-  }
+  val onTertiary: DynamicColor
+    get() = colorSpec.onTertiary
 
-  fun tertiaryContainer(): DynamicColor {
-    return colorSpec.tertiaryContainer()
-  }
+  val tertiaryContainer: DynamicColor
+    get() = colorSpec.tertiaryContainer
 
-  fun onTertiaryContainer(): DynamicColor {
-    return colorSpec.onTertiaryContainer()
-  }
+  val onTertiaryContainer: DynamicColor
+    get() = colorSpec.onTertiaryContainer
 
   // ///////////////////////////////////////////////////////////////
   // Tertiary Fixed Colors [TF] //
   // ///////////////////////////////////////////////////////////////
-  fun tertiaryFixed(): DynamicColor {
-    return colorSpec.tertiaryFixed()
-  }
+  val tertiaryFixed: DynamicColor
+    get() = colorSpec.tertiaryFixed
 
-  fun tertiaryFixedDim(): DynamicColor {
-    return colorSpec.tertiaryFixedDim()
-  }
+  val tertiaryFixedDim: DynamicColor
+    get() = colorSpec.tertiaryFixedDim
 
-  fun onTertiaryFixed(): DynamicColor {
-    return colorSpec.onTertiaryFixed()
-  }
+  val onTertiaryFixed: DynamicColor
+    get() = colorSpec.onTertiaryFixed
 
-  fun onTertiaryFixedVariant(): DynamicColor {
-    return colorSpec.onTertiaryFixedVariant()
-  }
+  val onTertiaryFixedVariant: DynamicColor
+    get() = colorSpec.onTertiaryFixedVariant
 
   // ////////////////////////////////////////////////////////////////
   // Errors [E] //
   // ////////////////////////////////////////////////////////////////
-  fun error(): DynamicColor {
-    return colorSpec.error()
-  }
+  val error: DynamicColor
+    get() = colorSpec.error
 
-  fun errorDim(): DynamicColor? {
-    return colorSpec.errorDim()
-  }
+  val errorDim: DynamicColor?
+    get() = colorSpec.errorDim
 
-  fun onError(): DynamicColor {
-    return colorSpec.onError()
-  }
+  val onError: DynamicColor
+    get() = colorSpec.onError
 
-  fun errorContainer(): DynamicColor {
-    return colorSpec.errorContainer()
-  }
+  val errorContainer: DynamicColor
+    get() = colorSpec.errorContainer
 
-  fun onErrorContainer(): DynamicColor {
-    return colorSpec.onErrorContainer()
-  }
-
-  // ////////////////////////////////////////////////////////////////
-  // Android-only colors //
-  // ////////////////////////////////////////////////////////////////
-  /**
-   * These colors were present in Android framework before Android U, and used by MDC controls. They
-   * should be avoided, if possible. It's unclear if they're used on multiple backgrounds, and if
-   * they are, they can't be adjusted for contrast.* For now, they will be set with no background,
-   * and those won't adjust for contrast, avoiding issues.
-   * * For example, if the same color is on a white background _and_ black background, there's no
-   *   way to increase contrast with either without losing contrast with the other.
-   */
-  // colorControlActivated documented as colorAccent in M3 & GM3.
-  // colorAccent documented as colorSecondary in M3 and colorPrimary in GM3.
-  // Android used Material's Container as Primary/Secondary/Tertiary at launch.
-  // Therefore, this is a duplicated version of Primary Container.
-  fun controlActivated(): DynamicColor {
-    return colorSpec.controlActivated()
-  }
-
-  // colorControlNormal documented as textColorSecondary in M3 & GM3.
-  // In Material, textColorSecondary points to onSurfaceVariant in the non-disabled state,
-  // which is Neutral Variant T30/80 in light/dark.
-  fun controlNormal(): DynamicColor {
-    return colorSpec.controlNormal()
-  }
-
-  // colorControlHighlight documented, in both M3 & GM3:
-  // Light mode: #1f000000 dark mode: #33ffffff.
-  // These are black and white with some alpha.
-  // 1F hex = 31 decimal; 31 / 255 = 12% alpha.
-  // 33 hex = 51 decimal; 51 / 255 = 20% alpha.
-  // DynamicColors do not support alpha currently, and _may_ not need it for this use case,
-  // depending on how MDC resolved alpha for the other cases.
-  // Returning black in dark mode, white in light mode.
-  fun controlHighlight(): DynamicColor {
-    return colorSpec.controlHighlight()
-  }
-
-  // textColorPrimaryInverse documented, in both M3 & GM3, documented as N10/N90.
-  fun textPrimaryInverse(): DynamicColor {
-    return colorSpec.textPrimaryInverse()
-  }
-
-  // textColorSecondaryInverse and textColorTertiaryInverse both documented, in both M3 & GM3, as
-  // NV30/NV80
-  fun textSecondaryAndTertiaryInverse(): DynamicColor {
-    return colorSpec.textSecondaryAndTertiaryInverse()
-  }
-
-  // textColorPrimaryInverseDisableOnly documented, in both M3 & GM3, as N10/N90
-  fun textPrimaryInverseDisableOnly(): DynamicColor {
-    return colorSpec.textPrimaryInverseDisableOnly()
-  }
-
-  // textColorSecondaryInverse and textColorTertiaryInverse in disabled state both documented,
-  // in both M3 & GM3, as N10/N90
-  fun textSecondaryAndTertiaryInverseDisabled(): DynamicColor {
-    return colorSpec.textSecondaryAndTertiaryInverseDisabled()
-  }
-
-  // textColorHintInverse documented, in both M3 & GM3, as N10/N90
-  fun textHintInverse(): DynamicColor {
-    return colorSpec.textHintInverse()
-  }
+  val onErrorContainer: DynamicColor
+    get() = colorSpec.onErrorContainer
 
   // ////////////////////////////////////////////////////////////////
   // All Colors //
@@ -416,14 +290,6 @@ class MaterialDynamicColors {
       this::onError,
       this::errorContainer,
       this::onErrorContainer,
-      this::controlActivated,
-      this::controlNormal,
-      this::controlHighlight,
-      this::textPrimaryInverse,
-      this::textSecondaryAndTertiaryInverse,
-      this::textPrimaryInverseDisableOnly,
-      this::textSecondaryAndTertiaryInverseDisabled,
-      this::textHintInverse,
     )
   }
 }
