@@ -29,7 +29,7 @@ import kotlin.math.max
 import kotlin.math.min
 
 /** [ColorSpec] implementation for the 2021 spec. */
-class ColorSpec2021 : ColorSpec {
+open class ColorSpec2021 : ColorSpec {
   // ////////////////////////////////////////////////////////////////
   // Main Palettes //
   // ////////////////////////////////////////////////////////////////
@@ -947,11 +947,11 @@ class ColorSpec2021 : ColorSpec {
       // If constraint is not satisfied, try another round.
       if ((fTone - nTone) * expansionDir < delta) {
         // 2nd round: expand farther to match delta.
-        fTone = MathUtils.clampDouble(0.0, 100.0, nTone + delta * expansionDir)
+        fTone = (nTone + delta * expansionDir).coerceIn(0.0, 100.0)
         // If constraint is not satisfied, try another round.
         if ((fTone - nTone) * expansionDir < delta) {
           // 3rd round: contract nearer to match delta.
-          nTone = MathUtils.clampDouble(0.0, 100.0, fTone - delta * expansionDir)
+          nTone = (fTone - delta * expansionDir).coerceIn(0.0, 100.0)
         }
       }
 
@@ -1094,6 +1094,7 @@ class ColorSpec2021 : ColorSpec {
           40.0,
         )
       Variant.VIBRANT -> TonalPalette.fromHueAndChroma(sourceColorHct.hue, 200.0)
+      else -> throw IllegalArgumentException("$variant variant is not supported in current spec.")
     }
   }
 
@@ -1138,6 +1139,7 @@ class ColorSpec2021 : ColorSpec {
           ),
           24.0,
         )
+      else -> throw IllegalArgumentException("$variant variant is not supported in current spec.")
     }
   }
 
@@ -1186,6 +1188,7 @@ class ColorSpec2021 : ColorSpec {
           ),
           32.0,
         )
+      else -> throw IllegalArgumentException("$variant variant is not supported in current spec.")
     }
   }
 
@@ -1208,6 +1211,7 @@ class ColorSpec2021 : ColorSpec {
       Variant.EXPRESSIVE ->
         TonalPalette.fromHueAndChroma(MathUtils.sanitizeDegreesDouble(sourceColorHct.hue + 15), 8.0)
       Variant.VIBRANT -> TonalPalette.fromHueAndChroma(sourceColorHct.hue, 10.0)
+      else -> throw IllegalArgumentException("$variant variant is not supported in current spec.")
     }
   }
 
@@ -1233,6 +1237,7 @@ class ColorSpec2021 : ColorSpec {
           12.0,
         )
       Variant.VIBRANT -> TonalPalette.fromHueAndChroma(sourceColorHct.hue, 12.0)
+      else -> throw IllegalArgumentException("$variant variant is not supported in current spec.")
     }
   }
 

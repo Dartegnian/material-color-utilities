@@ -15,16 +15,16 @@
  * limitations under the License.
  */
 
-import {Hct} from '../hct/hct.js';
-import {TonalPalette} from '../palettes/tonal_palette.js';
-
 import {ColorSpecDelegateImpl2021} from './color_spec_2021.js';
 import {ColorSpecDelegateImpl2025} from './color_spec_2025.js';
+import {ColorSpecDelegateImpl2026} from './color_spec_2026.js';
 import type {DynamicColor} from './dynamic_color';
-import {DynamicScheme, Platform} from './dynamic_scheme';
-import {Variant} from './variant.js';
+import {DynamicScheme} from './dynamic_scheme.js';
 
-export type SpecVersion = '2021'|'2025';
+/**
+ * The version of the material color spec to use.
+ */
+export type SpecVersion = '2021'|'2025'|'2026';
 
 /**
  * A delegate that provides the dynamic color constraints for
@@ -197,6 +197,7 @@ export interface ColorSpecDelegate {
 
 export const spec_2021 = new ColorSpecDelegateImpl2021();
 export const spec_2025 = new ColorSpecDelegateImpl2025();
+export const spec_2026 = new ColorSpecDelegateImpl2026();
 
 /**
  * Returns the ColorSpecDelegate for the given spec version.
@@ -207,6 +208,8 @@ export function getSpec(specVersion: SpecVersion): ColorSpecDelegate {
       return spec_2021;
     case '2025':
       return spec_2025;
+    case '2026':
+      return spec_2026;
     default:
       throw new Error(`Unsupported spec version: ${specVersion}`);
   }
